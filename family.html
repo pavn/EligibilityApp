@@ -1,0 +1,115 @@
+<!--
+   family.html
+
+   Copyright 2015 Pavan Narayanan <labadmin@math2>
+   Mathematics Department,
+   Buffalo State College
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+        <title>untitled</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="generator" content="Geany 1.23.1" />
+</head>
+
+<body>
+        <table style: "width:100%">
+                <h1>Listing of Family Members</h1>
+                <tr>
+                        <td>No:</td>
+                        <td>Name</td>
+                        <td>Relationship</td>
+                        <td>Income (In $)</td>
+                        <td>Frequency</td>
+                        <td>Yearly Income</td>
+                </tr>
+                <tr>
+                        <td>1</td>
+                        <td><input type="textbox" name="name1"></td>
+                        <td><input type="textbox" name="relationship1"></td>
+                        <td><input type="textbox" name="income1" size="10" maxlength="100"></td>
+                        <td><input type="number" name="freq1" size="10" ></td>
+                        <td><input type="textbox" name="yearly1"></td>
+                </tr>
+                <tr>
+                        <td>2</td>
+                        <td><input type="textbox" name="name2"></td>
+                        <td><input type="textbox" name="relationship2"></td>
+                        <td><input type="textbox" name="income2" size="10" maxlength="100"></td>
+                        <td><input type="number" name="freq2" size="10" ></td>
+                        <td><input type="textbox" name="yearly2"></td>
+                </tr>
+                <tr>
+                        <td>3</td>
+                        <td><input type="textbox" name="name3"></td>
+                        <td><input type="textbox" name="relationship3"></td>
+                        <td><input type="textbox" name="income3" size="10" maxlength="100"></td>
+                        <td><input type="number" name="freq3" size="10" ></td>
+                        <td><input type="textbox" name="yearly3"></td>
+                </tr>
+                <tr>
+                        <td>4</td>
+                        <td><input type="textbox" name="name4"></td>
+                        <td><input type="textbox" name="relationship4"></td>
+                        <td><input type="textbox" name="income4" size="10" maxlength="100"></td>
+                        <td><input type="number" name="freq4" size="10" ></td>
+                        <td><input type="textbox" name="yearly4"></td>
+                </tr>
+                <tr>
+                        <td>5</td>
+                        <td><input type="textbox" name="name5"></td>
+                        <td><input type="textbox" name="relationship5"></td>
+                        <td><input type="textbox" name="income5" size="10" maxlength="100"></td>
+                        <td><input type="number" name="freq5" size="10" ></td>
+                        <td><input type="textbox" name="yearly5"></td>
+                </tr>
+                <Tr>
+                        <td></td><Td>Total</Td><td></td><td></td><td></td>
+                        <Td><input type="textbox" name="test11" id = "returnpaste"></Td>
+                </Tr>
+
+                <tr>
+                                <td colspan="3">
+                                <button onclick="printFunction()">Print</button>
+                                <script>
+                                        function printFunction() {
+                                                window.print();
+                                        }
+                                </script>
+                                <button onclick="clearFunction()">Clear</button>
+                                <script>
+                                        function clearFunction() {
+                                                window.clear();
+                                        }
+                                </script>
+                                <button onclick="returnFunction()">Return</button>
+                                <script>
+                                        function returnFunction() {
+                                          var testname = localStorage.getItem("test11");
+                                          alert(testname);
+                                          //document.getElementById("location.href='main.html'").value = 'test';
+                                        window.history.back();
+                                        }
+                                </script>
+                                <button onclick="pasteFunction()">PasteIncome</button>
+                                <script>
+                                        function pasteFunction() {
+                                        var test = document.getElementById("returnpaste").value;
+                                        localStorage.setItem("test11",test);
+                                        //alert(test);
+                                        //var testname = localStorage.getItem("test11");
+                                        //alert("this is get method"+testname)
+                                        }
+                                </script>
+                                </td>
+                        </tr>
+
+        </table>
+
+</body>
+
+</html>
