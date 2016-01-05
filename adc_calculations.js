@@ -959,10 +959,67 @@ function fuel() {
 }
 
 
+function grossIncome1() {
+    
+    var freq1 = document.getElementById("incFreq1").value;
+    var amt1 = document.getElementById("incAmt1").value;
+    
+    if (freq1="w") {
+        document.getElementById("ginc1") = amt1*1;
+    } else if (freq1="b") {
+        document.getElementById("ginc1") = amt1*2.16;
+        
+    } else if (freq1="m") {
+        document.getElementById("ginc1") = amt1*4.33;
+    }
+
+}
+function grossIncome2() {
+    
+    var freq2 = document.getElementById("incFreq2").value;
+    var amt2 = document.getElementById("incAmt2").value;
+    
+    if (freq2="w") {
+        document.getElementById("ginc2") = amt1*1;
+    } else if (freq2="b") {
+        document.getElementById("ginc2") = amt1*2.16;
+        
+    } else if (freq2="m") {
+        document.getElementById("ginc2") = amt1*4.33;
+    }
+
+    
+}
 
 
-function grossIncome1() {}
-function grossIncome2() {}
-function grossEarnedIncome() {}
-function workExp1() {}
-function workExp2() {}
+function grossEarnedIncome() {
+    
+    document.getElementById("gtotinc").value = document.getElementById("ginc1").value + document.getElementById("ginc1").value;
+
+}
+
+function workExp1() {
+
+}
+
+
+
+function workExp2() {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
