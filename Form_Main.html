@@ -1,0 +1,775 @@
+                                                            
+                                                            <!-- Eligibility Worksheet Front-end Development -->
+                                                            <!-- -------------------------------------------- -->
+                                                            <!-- Graduate Researcher Pavan Kumar Narayanan-- -->
+                                                            <!-- ------------------------------------------- -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>form1</title>
+        <link type="text/css" rel="stylesheet" href="form1info.css"/>
+        <!-- Angular.js CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<!-- JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Moment.js CDN -->
+        <script src="http://momentjs.com/downloads/moment.js"></script>
+    </head>
+    
+    <body onload = "loadvalue()" id = "table">
+        <div id="header">
+            <h1 class="heading">Eligibility Work Sheet for Title IV-E, TANF-EAF and Title XX-200%</h1>
+            <p class="heading">(Citizenship or legally qualified alien status required for eligibility)</p>
+            <p class="heading">Programmer: Pavan Narayanan / updated on 12/30/15</p>
+                </div>
+        <br><br><br>
+        <div><form action="localhost" method="post" id="main">
+            <table style="width:100%">
+            <tr>
+                <td><input type="button" name="Clear_Fields" value="Clear Fields"></td>
+                <!-- <style>
+                .right {
+                    text-align: right;
+                } 
+                </style>-->
+                <td class="right">
+                    <script type="text/javascript">
+                        var todaydate = new Date();
+                        document.writeln(todaydate);
+                    </script>
+                </td>
+                </tr>
+            </table>
+            <br><br>
+            <fieldset>
+              <legend><h3>Eligibility</h3></legend>
+			  <script>
+			  $(document).ready(function(){
+					$("#foster").click(function(){
+						$(".mustfill").slideUp();
+					});
+					$("#family").click(function(){
+						$(".mustfill").slideDown();
+					});
+				});
+				function datepop() {
+					var date2 = document.getElementById("birthdate");
+					document.getElementById("birthdate1").value = date2.value;
+                    alert(date2.value);
+				}
+                function datepop1() {
+					var date3 = document.getElementById("orderdate1");
+                    document.getElementById("orderdate2").value = date3.value;
+                    document.getElementById("orderdate3").value = date3.value;
+                    
+                    alert(date3.value - date2.value);
+                    
+                    var date2a = moment(date2, 'DD-MM-YYYY');
+                    var date3a = moment(date3, 'DD-MM-YYYY');
+                    var difference = date3a.diff(date2a, 'days');                    
+                    
+                    //var date4 = (date3.value - date2.value);
+                    document.getElementById("agedifference").value = difference.value;
+				}
+                function datediff() {
+                    //var date4 = (date3.value - date2.value);
+                    //document.getElementById("agedifference").value = date4.value;
+                    return new Number((date3.getTime() - date2.getTime()) / 31536000000).toFixed(0);
+                    
+
+                    
+                    
+                }
+			  </script>
+              <table style="width:70%">
+                <tr>
+                  <input type="radio" name="checkone" id="foster">Foster Child (Title IV-E/TANF-EAF/Title XX-200%) Eligibility
+                  <input type="radio" name="checkone" id="family">Family (TANF-EAF/Title XX-200%) In-Home Eligibility
+				  <!--<p id="mustfill" style="color:red" hidden><strong>Entry required.</strong></p>-->
+               </tr>
+              </table>
+            </fieldset>
+            <fieldset>
+                <legend><h3>Section 1: Case Information</h3></legend>
+                    <table style="width:70%">
+                        <tr>
+                            <td><label>Case Name</label></td>
+                            <td><input type="text" name="casename" id="casename" size="30" maxlength="100" required></td>
+                            <td><label>Date of Birth</label></td>
+                            <td><input type="date" id="birthdate" name="date_of_birth1" oninput="datepop()"></td>
+							<td><p class="mustfill" style="color:red" hidden><strong>Entry required.</strong></p></td>				
+
+                        </tr>
+                        <tr>
+                            <td><label>Case Number</label></td>
+                            <td><input type="text" name="case number" size="30" maxlength="100"></td>
+                            <td><label>Date of Placement</label></td>
+                            <td><input type="date" name="date of placement"></td>
+							<td><p class="mustfill" style="color:red" hidden><strong>Entry required.</strong></p></td>
+
+                        </tr>
+                        <tr>
+                            <td><label>Office/Unit/Worker</label></td>
+                            <td><input type="text" name="office/unit/worker" size="30" maxlength="100"></td>
+                            <td><label>Case Initiation Date</label></td>
+                            <td><input type="date" name="case initiation date"></td>
+							<td><p class="mustfill" style="color:red" hidden><strong>Entry required.</strong></p></td>
+                        </tr>
+                        <tr>
+                            <td><label>Child's Last Name</label></td>
+                            <td><input type="text" name="child's last name" size="30" maxlength="100"></td>
+                            <td><label>SSI Clearance Date</label></td>
+                            <td><input type="date" name="ssi clearance date"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Child's First Name</label></td>
+                            <td><input type="text" name="child's first name" size="30" maxlength="100"></td>
+							<td><p class="mustfill" style="color:red" hidden><strong>Entry required.</strong></p></td>
+                        </tr>
+                        <tr>
+                            <td><label>CIN</label></td>
+                            <td><input type="text" name="CIN" size="30" maxlength="100"></td>
+							<td><p class="mustfill" style="color:red" hidden><strong>Entry required.</strong></p></td>
+                            <td><label>PA Clearance Date</label></td>
+                            <td><input type="date" name="pa clearance date"></td>
+                        </tr>
+                        <tr>
+                            <td><input type = "checkbox" name = "Public Assistance Receipient" value="public assistance receipient" >Public Assistance Receipient</td>
+							<td><p class="mustfill" style="color:red"><strong>Entry required.</strong></p></td>
+                        </tr>
+                        <tr>
+                            <td><input type = "checkbox" name = "SSI receipient" value="SSI receipient" >SSI Receipient</td>
+							<td><p class="mustfill" style="color:red"><strong>Entry required.</strong></p></td>
+                            <td><a href="#tanf_eaf_eligibility"><input type="button" name="move to tanf-eaf" value="Move to TANF-EAF"></a></td>
+                        </tr>
+                        <tr>
+                            <td><input type = "checkbox" name = "WMS Screen Print" value="WMS Screen Print" >WMS Screen Print</td>
+							<td><p class="mustfill" style="color:red"><strong>Entry required.</strong></p></td>
+                            <td><a href="#title_xx_200"><input type="button" name="Move to Title XX-200%" value="Move to Title XX-200%"></a></td>
+                        </tr>
+                    </table>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><h3>Section 2: General Eligibility</h3></legend>
+                    <fieldset>
+                        <legend><b>A: Legal Authority</b></legend>
+                        <p>Was the child removed from the home of a parent/other relative as the result of a court order under Article 10 (abuse/maltreatment), 7 (PINS), 3 (JD), or SSL 358-a and does the order provide care and custody or custody and guardianship to the Commissioner and <ins>explicitly state that </ins>the court made a finding that <ins>continuation in the home would be contrary to the welfare of the child or removal was in the best interest of the child?</ins> <br>OR: <br> Was a Voluntary Placement Agreement signed by the child's parent(s) or legal guardian(s) pursuant to SSL 384-a, that gives care and custody to the Commissioner? </p>
+                        <table style="width:70%">
+                        <tr>
+                            <td><input type = "checkbox" name = "Yes, SSL 384-a CCRS Legal Event 01" value="Yes, SSL 384-a CCRS Legal Event 01" >Yes, SSL 384-a CCRS Legal Event 01</td>
+							<td><p class="mustfill" style="color:red" hidden><strong>Legal authority entry required.</strong></p></td>	
+                         <!--   <td><label>Docket Number</label></td>
+                            <td><input type="text" name="docket number  " size="30" maxlength="100"></td>-->
+
+                        </tr>
+                        <tr>
+                            <td><input type = "checkbox" name = "Yes, FCA Article 10  CCRS Legal Event 04" value="Yes, FCA Article 10  CCRS Legal Event 04" >Yes, FCA Article 10  CCRS Legal Event 04</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type = "checkbox" name = "Yes, FCA Article 7 CCRS Legal Event 06" value="Yes, FCA Article 7 CCRS Legal Event 06" >Yes, FCA Article 7 CCRS Legal Event 06</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type = "checkbox" name = "Yes, FCA Article 3 CCRS Legal Event 07" value="Yes, FCA Article 3 CCRS Legal Event 07" >Yes, FCA Article 3 CCRS Legal Event 07</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type = "checkbox" name = "Yes, SSL 358-a CCRS Legal Event 02" value="Yes, SSL 358-a CCRS Legal Event 02" >Yes, SSL 358-a CCRS Legal Event 02</td>
+                        </tr>
+                        </table>
+                        <table style="width:50%">
+
+                        <tr>
+                            <td><label>Docket Number</label></td>
+                            <td><input type="text" name="docket number  " size="30" maxlength="100"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Date of Agreement</label></td>
+                            <td><input type="date" name="date of agreement" oninput="datediff()" id="agreementdate"></td>
+                        </tr
+                        <tr>
+                            <td><label>Date of Petition</label></td>
+                            <td><input type="date" name="date of petition"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Date of Order</label></td>
+                            <td><input type="date" id= "orderdate1" oninput="datepop1()" name="date of order"></td>
+                        </tr>
+                        </table>
+                        <tr>
+                            <td><input type = "radio" name = "No, child ineligible for Title IV-E" value="No, child ineligible for Title IV-E" >No, child ineligible for Title IV-E - <i>Complete Section then go to Section IV, TANF-EAF</i></td>
+                        </tr>
+                    </fieldset>
+                <br>
+                <fieldset>
+                    <legend><b>B: Income Information</b></legend>
+                    <table style="width:70%">
+                        <tr>
+                            <td><label>Number in Family</label></td>
+                            <td><input type="number" name="family members" max="30" min="1" size="30" maxlength="100" id="familyheadcount"></td>
+							<td><p style="color:red"><strong><-- Entry required</strong></p></td>	
+                            <td><label>Local District</label></td>
+                            <td>
+                                <select name="district" id="localDistrict">
+                                    <option value="Albany">Albany</option>
+                                    <option value="Allegany">Allegany</option>
+                                    <option value="Broome">Broome</option>
+                                    <option value="Cattarugus">Cattarugus</option>
+                                    <option value="Cayuga">Cayuga</option>
+                                    <option value="Chautauqua">Chautauqua</option>
+                                    <option value="Chemung">Chemung</option>
+                                    <option value="Chenango">Chenango</option>
+                                    <option value="Clinton">Clinton</option>
+                                    <option value="Colombia">Colombia</option>
+                                    <option value="Cortland">Cortland</option>
+                                    <option value="Delaware">Delaware</option>
+                                    <option value="Dutchess">Dutchess</option>
+                                    <option value="Erie">Erie</option>
+                                    <option value="Essex">Essex</option>
+                                    <option value="Franklin">Franklin</option>
+                                    <option value="Fulton">Fulton</option>
+                                    <option value="Genessee">Genessee</option>
+                                    <option value="Greene">Greene</option>
+                                    <option value="Hamilton">Hamilton</option>
+                                    <option value="Herkimer">Herkimer</option>
+                                    <option value="Jefferson">Jefferson</option>
+                                    <option value="Lewis">Lewis</option>
+                                    <option value="Livingston">Livingston</option>
+                                    <option value="Madison">Madison</option>
+                                    <option value="Monroe">Monroe</option>
+                                    <option value="Mongtomery">Mongtomery</option>
+                                    <option value="Nassau">Nassau</option>
+                                    <option value="Niagara">Niagara</option>
+                                    <option value="Oneida">Oneida</option>
+                                    <option value="Onondaga">Onondaga</option>
+                                    <option value="Ontario">Ontario</option>
+                                    <option value="Orange">Orange</option>
+                                    <option value="Orleans">Orleans</option>
+                                    <option value="Oswego">Oswego</option>
+                                    <option value="Otsego">Otsego</option>
+                                    <option value="Putnam">Putnam</option>
+                                    <option value="Rensselaer">Rensselaer</option>
+                                    <option value="Rockland">Rockland</option>
+                                    <option value="St. Lawrence">St. Lawrence</option>
+                                    <option value="Saratoga">Saratoga</option>
+                                    <option value="Schenectady">Schenectady</option>
+                                    <option value="Schoharie">Schoharie</option>
+                                    <option value="Schuyler">Schuyler</option>
+                                    <option value="Seneca">Seneca</option>
+                                    <option value="Steuben">Steuben</option>
+                                    <option value="Suffolk">Suffolk</option>
+                                    <option value="Sullivan">Sullivan</option>
+                                    <option value="Tioga">Tioga</option>
+                                    <option value="Tompkins">Tompkins</option>
+                                    <option value="Ulster">Ulster</option>
+                                    <option value="Warren">Warren</option>
+                                    <option value="Washington">Washington</option>
+                                    <option value="Wayne">Wayne</option>
+                                    <option value="Westchester">Westchester</option>
+                                    <option value="Wyoming">Wyoming</option>
+                                    <option value="Yates">Yates</option>
+                                    <option value="St. Regis">St. Regis</option>
+                                    <option value="New York City">New York City</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><label>Income as of:</label></td>
+                            <td><input type="month" name="date as of"></td>
+                        </tr>
+                        
+
+                        <tr>
+                            <td><label>Income Frequency 1</label></td>
+                            <td><div data-tip="Enter w=weekly b=bimonthly m=monthly"><span class="currencyinput"><input type="text"  size="4" name="currency" id="incFreq1"></span></div></td>
+                            <!-- <td><select name="rate" id="currency">
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select></td> -->
+                            <td><span class="currencyinput">$<input type="text" name="currency" id="incAmt1"></span></td>
+                            <td><label>Source of Income</label></td>
+                            <td><select name="income" id="source1">
+                                <option value="01 - Salaries, Wages">01 - Salaries, Wages</option>
+                                <option value="04 - Work Experience">04 - Work Experience</option>
+                                <option value="05 - Irregular or Infrequent Income">05 - Irregular or Infrequent Income</option>
+                                <option value="06 - Other Earnings">06 - Other Earnings</option>
+                                <option value="07 - VISTA">07 - VISTA</option>
+                                <option value="08 - Severance Pay">08 - Severance Pay</option>
+                                <option value="09 - Family Day Care Provider Income">09 - Family Day Care Provider Income</option>
+                                <option value="10 - Employer-Provider Income">10 - Employer-Provider Income</option>
+                                <option value="20 - Net Business Income/Self Employment">20 - Net Business Income/Self Employment</option>
+                                <option value="31 - Subsidized Private/Public Sector">31 - Subsidized Private/Public Sector</option>
+                                <option value="40 - JTPA">40 - JTPA</option>
+                                <option value="44 - Vocational & Educational, Disabilities">44 - Vocational & Educational, Disabilities</option>
+                                <option value="45 - Income from Boarder/Lodger">45 - Income from Boarder/Lodger</option>
+                                <option value="46 - Rental, Work more 20 Hours">46 - Rental, Work more 20 Hours</option>
+                                <option value="47 - Rental, Work less 20 Hours">47 - Rental, Work less 20 Hours</option>
+                                <option value="48 - Income from a Roomer">48 - Income from a Roomer</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Income Frequency 2</label></td>
+                            <td><div data-tip="Enter w=weekly b=bimonthly m=monthly"><span class="currencyinput"><input type="text" maxlength="4" size="4 "name="currency" id="incFreq2"></span></div></td>
+                            <!--<td><select name="rate" id="currency">
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select></td>-->
+                            <td><span class="currencyinput">$<input type="text" name="currency" id="incAmt2"></span></td>
+                            <td><label>Source of Income</label></td>
+                            <td><select name="income" id="source2">
+                                <option value="01 - Salaries, Wages">01 - Salaries, Wages</option>
+                                <option value="04 - Work Experience">04 - Work Experience</option>
+                                <option value="05 - Irregular or Infrequent Income">05 - Irregular or Infrequent Income</option>
+                                <option value="06 - Other Earnings">06 - Other Earnings</option>
+                                <option value="07 - VISTA">07 - VISTA</option>
+                                <option value="08 - Severance Pay">08 - Severance Pay</option>
+                                <option value="09 - Family Day Care Provider Income">09 - Family Day Care Provider Income</option>
+                                <option value="10 - Employer-Provider Income">10 - Employer-Provider Income</option>
+                                <option value="20 - Net Business Income/Self Employment">20 - Net Business Income/Self Employment</option>
+                                <option value="31 - Subsidized Private/Public Sector">31 - Subsidized Private/Public Sector</option>
+                                <option value="40 - JTPA">40 - JTPA</option>
+                                <option value="44 - Vocational & Educational, Disabilities">44 - Vocational & Educational, Disabilities</option>
+                                <option value="45 - Income from Boarder/Lodger">45 - Income from Boarder/Lodger</option>
+                                <option value="46 - Rental, Work more 20 Hours">46 - Rental, Work more 20 Hours</option>
+                                <option value="47 - Rental, Work less 20 Hours">47 - Rental, Work less 20 Hours</option>
+                                <option value="48 - Income from a Roomer">48 - Income from a Roomer</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Monthly Unearned Income</label></td>
+                            <td><input type="text" ></td>
+                            <td><label>Child Support</label></td>
+                            <td><input type="text" ></td>
+                        </tr>
+                        <tr>
+                            <td><label>Amount of Resources</label></td>
+                            <td><input type="text" ></td>
+                            <td><label>Monthly Day Care</label></td>
+                            <td><input type="text" ></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><b>C: Age</b></legend>
+                    <p>Was the child under the age of 18 on the date of the court order or on the date of voluntary placement agreement signed?</p>
+                    <table style="width:60%">
+                         <tr>
+                            <td><input type="radio" name="yes" value="Yes">Yes</td>
+                            <td><input type="radio" name="no" value="No, Child ineligible for Title IV-E">No, Child ineligible for Title IV-E<i>,<b>Complete Section then go to Section IV, TANF-EAF</b></i></td>
+                        </tr>
+                        <tr>
+                            <td><label>Order/Agreement Date</label></td>
+                            <td><input type="date" name="date of agreement" id = "orderdate2" value="1922-01-01"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Date of Birth</label></td>
+                            <td><input type="date" name="date_of_birth2" id = "birthdate1"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Age at Order/Agreement</label></td>
+                            <td><input type="input" name="date_of_order" id="agedifference" ></td>
+                        </tr>
+
+                    </table>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><h4>D: Living with a specified relative</h4></legend>
+                    <p>Was the child living in the home of a specified relative in the month or in any of the six months before the month that the court petition was filed or the Voluntary Placement Agreement was signed? (few fields missed)</p>
+                    <table style="width:70%">
+                        <tr>
+                            <td><label>Petition/Order/Agreement Date</label></td>
+                            <td><input type="date" name="date of agreement" id = "orderdate3"></td>     
+                            <td><label>Last living with Relative</label></td>
+                            <td><input type="date" name="relativedate" id = "relativedate"></td> 
+                        </tr>
+                        <tr>
+                            <td><label>Name of Relative</label></td>
+                            <td><input type="text" name="name_relative"></td>
+                            <td><label>Relationship</label></td>
+                            <td><input type="text" name="relationship"></td>
+                        </tr>
+                    </table>
+                    <table style="width:100%">
+                        <tr>
+                            <td colspan="4"><input type="radio" name="relative" value="Yes">Time condition met, but the "specified relative" and the "relative foster parent" are the same person OR the "physical removal" and the "legal removal" were not from the same person. Child ineligible for Title IV-E - Go to Section IV, TANF-EAF</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="relative" value="No">No, Child ineligible for Title IV-E<i>,<b>Complete Section then go to Section IV, TANF-EAF</b></i></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><h4>E: Citizenship</h4></legend>
+                    <p>Is the child a citizen of the U.S. or a legally qualified alien as defined under the federal PRWORA (Personal Responsibility and Work Opportunity Reconciliation Act)?</p>
+                    <table style="width:70%">
+                        <tr>
+                            <td><input type="radio" name="yes" value="Yes">Yes</td>
+                            <td><input type="radio" name="no" value="No">No, Child ineligible for Title IV-E<i>,<b>Complete Section then go to Section IV, TANF-EAF</b></i></td>
+                            <td><a href="#tanf_eaf_eligibility"><input type="button" name="go" value="  Go  "></a></td>
+                        </tr>
+
+                    </table>
+                </fieldset>
+
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><h3>Section 3: Title IV-E Eligibility</h3></legend>
+                <fieldset>
+                    <legend><h3>A: Foster child must meet all requirements below for title IV-E Eligibility</h3></legend>
+                    <fieldset>
+                        <legend><h4>A1: Reasonable Efforts</h4>
+</legend>
+                        <p>For a child placed in foster care by a court order, the court must make an explicit judicial determination to the effect that reasonable efforts were made to eliminate the need for removal or to return the child to the home, or the lack of such efforts was reasonable, or that reasonable efforts were not required.  Otherwise the case is ineligible.</p>
+                        <table style="width:70%">
+                            <tr><td><input type="radio">Not Applicable (placement by volantary agreement)</Td></tr>
+                            <tr><td><input type="radio">Yes</Td></tr>
+                    <tr><td><input type="radio">No, Child ineligible for title IV-E - <b>Go to section IV , TANF-EAF</b></td><td><a href="#tanf_eaf_eligibility"><input type="button" name="go" value="  Go  "></a></td></tr>
+                            <tr><td><input type="checkbox">Meets Condition</Td></tr>
+                        </table>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <legend><h4>A2: Parental Deprivation</h4></legend>
+                        <p>Was the child deprived of parental support and care for one or more of the following reasons?</p>
+                        <table style="width:70%">
+                            <tr><td><input type="checkbox">Absence of parent from home</td></tr>
+                            <tr><td><input type="checkbox">Incapacity of Parent</td></tr>
+                            <tr><td><input type="checkbox">Unemployed parent/Underemployed Parent</td></tr>
+                            <tr><td><input type="checkbox">Death of Parent(s)</td></tr>
+                            <tr><td>Partial Deprivation Met<input type="checkbox"></td></tr>
+                            <tr><td><input type="checkbox">No, child ineligible  for Title IV-E - <b>Go to Section IV, TANF-EAF</b></td><td><a href="#tanf_eaf_eligibility"><input type="button" name="go" value="  Go  "></a></td></tr>
+                        </table>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <legend><h4>A3: ADC Financial Eligibility</h4></legend>
+                        <p>Would the child have been financially eligible for ADC during the month of July, 1996 based on the family's income and resources in the month that the voluntary placement agreement was signed; or if no voluntary agreement, then whichever is earlier, the month of the petition, or the first court proceeding leading to the placement of the child?</p>
+                        <table style="width:70%">
+                            <tr>
+                                <td>Shelter Type</td>
+                                <td><select name="Shelter" id="ShelterID">
+                                            <option value=" 01 - Rent Private">01 - Rent Private</option>
+                                            <option value=" 02 - Rent Public">02 - Rent Public</option>
+                                            <option value=" 03 - Own Home">03 - Own Home</option>
+                                            <option value=" 04 - Room & Board">04 - Room & Board</option>
+                                            <option value=" 05 - Hotel/Motel Permanent">05 - Hotel/Motel Permanent</option>
+                                            <option value=" 06 - Hotel/Motel Temporary">06 - Hotel/Motel Temporary</option>
+                                            <option value=" 07 - Migrant Labor Camp">07 - Migrant Labor Camp</option>
+                                            <option value=" 09 - Medical Facility">09 - Medical Facility</option>
+                                            <option value=" 10 - Congregate Care L-II Drug/Alcohol">10 - Congregate Care L-II Drug/Alcohol</option>
+                                            <option value=" 11 - Room">11 - Room</option>
+                                            <option value=" 12 - Non-Commercial Room Only">12 - Non-Commercial Room Only</option>
+                                            <option value=" 15 - Congregate Care L-I Family Care">15 - Congregate Care L-I Family Care</option>
+                                            <option value=" 16 - Congregate Care L-II not Drug/Alcohol">16 - Congregate Care L-II not Drug/Alcohol</option>
+                                            <option value=" 17 - Congregate Care L-II Apartment Like">17 - Congregate Care L-II Apartment Like</option>
+                                            <option value=" 19 - Tier II Family Shelter">19 - Tier II Family Shelter</option>
+                                            <option value=" 20 - Rental Supplement">20 - Rental Supplement</option>
+                                            <option value=" 21 - Shelter for Homless 3 meals">21 - Shelter for Homless 3 meals</option>
+                                            <option value=" 22 - Residential Program for VDV">22 - Residential Program for VDV</option>
+                                            <option value=" 23 - Undomiciled">23 - Undomiciled</option>
+                                            <option value=" 33 - Homeless Shelter Tier II">33 - Homeless Shelter Tier II</option>
+                                            <option value=" 36 - Shelter for Homless > 3 meals">36 - Shelter for Homless > 3 meals</option>
+                                            <option value=" 37 - Residential Program for VDV > 3 meals">37 - Residential Program for VDV > 3 meals</option>
+                                            <option value=" 38 - Subsidized Housing">38 - Subsidized Housing</option>
+                                            <option value=" 39 - HUD without Earnings">39 - HUD without Earnings</option>
+                                            <option value=" 40 - HUD with Earnings">40 - HUD with Earnings</option>
+                                            <option value=" 44 - Supportive Housing District 55 Only">44 - Supportive Housing District 55 Only</option>
+                                    </select></td>
+                                <td>Income As Of:</td>
+                                <td><input type="month"></td>
+                            </tr>
+                            <tr>
+                                <td>Fuel Type</td>
+                                <td><select name="fuel" id="fuelID">
+                                            <option value=" 0 - No Heat, Included in Rent">0 - No Heat, Included in Rent</option>
+                                            <option value=" 1 - Gas, Coal, Wood, City, Other">1 - Gas, Coal, Wood, City, Other</option>
+                                            <option value=" 2 - Oil, Kerosene, Propane">2 - Oil, Kerosene, Propane</option>
+                                            <option value=" 3 - PSC">3 - PSC</option>
+                                    </select>
+                                </td>
+                                <td><input type="checkbox">Actual Shelter Unknown</td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="button" value="Click to Calculate Eligibility"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Monthly Shelter Expense</td>
+                                <td><input type="text" name="shelter expense"></td>
+                                <td><input type="text" name="shelter allowance" value="$"></td>
+                                <td>Shelter Allowance</td>
+                            </tr>
+                            <tr>
+                                <td>Basic Need</td>
+                                <td><input type="text" name="basic need" id="bneed"></td>
+                                <td><input type="text" name="gross income1" id="ginc1" value="$"></td>
+                                <td>Gross Income (1)</td>
+                            </tr>
+
+                            <tr>
+                                <td>Energy</td>
+                                <td><input type="text" name="energy" id="energy"></td>
+                                <td><input type="text" name="gross income2" id="ginc2" value="$"></td>
+                                <td>Gross Income (2)</td>
+                            </tr>
+
+                            <tr>
+                                <td>Supp Energy</td>
+                                <td><input type="text" name="supp energy" id="suppenergy"></td>
+                                <td><input type="text" name="gross earned" value="$"></td>
+                                <td>Gross Earned Income</td>
+                            </tr>
+
+                            <tr>
+                                <td>Shelter Allowance</td>
+                                <td><input type="text" name="shelter allowance"></td>
+                                <td><input type="text" name="work exp1" value="$"></td>
+                                <td>Work Exp(1)</td>
+                            </tr>
+
+                            <tr>
+                                <td>Water</td>
+                                <td><input type="text" name="water"></td>
+                                <td><input type="text" name="work exp2" value="$"></td>
+                                <td>Work Exp(2)</td>
+                            </tr>
+
+                            <tr>
+                                <td>Fuel</td>
+                                <td><input type="text" name="fuel"></td>
+                                <td><input type="text" name="income1-30/3" value="$"></td>
+                                <td>Income (1) - 30/3</td>
+                            </tr>
+
+                            <tr>
+                                <td>Other Allowances</td>
+                                <td><input type="text" name="other allow"></td>
+                                <td><input type="text" name="income2-30/3" value="$"></td>
+                                <td>Income (2) - 30/3</td>
+                            </tr>
+
+                            <tr>
+                                <td>Needs</td>
+                                <td><input type="text" name="needs"></td>
+                                <td><input type="text" name="day care" value="$"></td>
+                                <td>Day Care</td>
+                            </tr>
+
+                            <tr>
+                                <td>Budgeted Needs</td>
+                                <td><input type="text" name="budgeted needs"></td>
+                                <td><input type="text" name="net earned income1" value="$"></td>
+                                <td>Net Earned Income</td>
+                            </tr>
+
+                            <tr>
+                                <td>Calculated Income</td>
+                                <td><input type="text" name="calculated income"></td>
+                                <td><input type="text" name="Unearned Income" value="$"></td>
+                                <td>Unearned Income</td>
+                            </tr>
+
+                            <tr>
+                                <td>Deficit</td>
+                                <td><input type="text" name="deficit"></td>
+                                <td><input type="text" name="185needs" value="$"></td>
+                                <td>185% of needs</td>
+                            </tr>
+
+                            <tr>
+                                <td><input type="radio">Yes, Financial Eligibility Documented</td>
+                                <td><input type="radio">No, child ineligible for Title IV-E - <b>Go to Section IV, TANF-EAF</b></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><h3>B: Title IV-E Eligibility Summary</h3></legend>
+                    <p>enter program here</p>
+                </fieldset>
+            </fieldset>
+    <br>
+    <fieldset>
+        <legend><a name="tanf_eaf_eligibility"></a><h3>Section IV: TANF-EAF Eligibility</h3></legend>
+        <fieldset>
+            <legend><b>A: The emergency situation is due to the following circumstances</b></legend>
+            <table>
+                <tr><td><input type="checkbox">FCA Article 10 Court Ordered Removal / Placement</td></tr>
+                <tr><td><input type="checkbox">FCA Article 7 Court Ordered Placement</td></tr>
+                <tr><td><input type="checkbox">FCA Article 3 Court Ordered Placement</td></tr>
+                <tr><td><input type="checkbox">SSL 358-a Court Order</td></tr>
+                <tr><td><input type="checkbox">SSL 384-a Placement made by Voluntary Placement Agreement</td></tr>
+                <tr><td><input type="checkbox">SSL 384 Placement made by Voluntary Surrender Agreement</td></tr>
+                <tr><td><input type="checkbox">FCA 651(b) Placement of Unaccompanied Refugee Minor</td></tr>
+                <tr><td>OR</td></tr>
+                <tr><td><input type="checkbox">Authorized Protective Services</td></tr>
+                <tr><td><input type="checkbox">PINS Diversion</td></tr>
+                <tr><td><input type="checkbox">Authorized Preventive Services</td></tr>
+                <tr><td><input type="checkbox">Homelessness / Minor Living on Own / Abandonment</td></tr>
+                <tr><td><input type="checkbox">Domestic Violence</td></tr>
+                <tr><td><input type="checkbox">Fire / Disaster / Other Emergency (specify)</td></tr>
+            </table>
+
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend><b>B: TANF-EAF Eligibility Documentation Checklist</b></legend>
+            <p>In order to determine child/family eligibility for EAF respond to the following questions:</p>
+            <ol type="1">
+                <li>Was the child under the age of 18, or under 19 in a secondary school (high school) or an equivalent level of vocation or technical training AND living with a specified relative sometime within the previous 6 months [Dept. Reg. 18 NYCRR 369.1(a)]?
+                    <table style="width:70%">
+                        <tr><td><input type="checkbox">Yes,proceed to next question</td></tr>
+                        <tr><td><input type="checkbox">Yes, a case member is a child or a pregnant woman in a family case</td></tr>
+                        <tr><td><input type="checkbox">Condition Met</td></tr>
+                        <tr><td><input type="checkbox">No, child/family ineligible for TANF-EAF - Go to Section V, Title XX-200%</td><td><a href="#title_xx_200"><input type="button" value="  Go  "></a></td></tr>
+                    </table>
+                </li>
+                <li>Citizenship - Is the child/family a citizen of the U.S. or a legally qualified alien as defined under the federal PRWORA?
+                    <table style="width:70%">
+                        <tr><td><input type="checkbox">Yes</td></tr>
+                        <tr><td><input type="checkbox">Yes, in a family case</td></tr>
+                        <tr><td><input type="checkbox">Meets Condition</td></tr>
+                        <tr><td><input type="checkbox">No, child/family ineligible for TANF-EAF - Go to Section V, Title XX-200%</td><td><a href="#title_xx_200"><input type="button" value="  Go  "></a></td></tr>
+                    </table>
+                </li>
+                <li>Was there no EAF auth written in the past 12 months, except one written in the past 30 days, or one written for the same emergency where the auth has not been closed?
+                    <table style="width:70%">
+                        <tr><td><input type="checkbox">Yes, proceed to next question</td></tr>
+                        <tr><td><input type="checkbox">No, child/family ineligible for TANF-EAF - Go to Section V, Title XX-200%</td><td><a href="#title_xx_200"><input type="button" value="  Go  "></a></td></tr>
+                    </table>
+                </li>
+                <li>Is the foster care child without sufficient resources accessible to meet their needs OR if this is a family case, is a member of the family on PA or SSI?
+                    <table style="width:70%">
+                        <tr><td><input type="checkbox">Yes, proceed to next question</td></tr>
+                        <tr><td><input type="checkbox">No, child/family ineligible for TANF-EAF - Go to Section V, Title XX-200%</td><td><a href="#title_xx_200"><input type="button" value="  Go  "></a></td></tr>
+                    </table>
+                </li>
+                <li>Did the need for services arise for reasons other than the parent/relative's refusal without good cause to accept employment or training?
+                    <table style="width:70%">
+                        <tr><td><input type="checkbox">Yes, proceed to next question</td></tr>
+                        <tr><td><input type="checkbox">No, child/family ineligible for TANF-EAF - Go to Section V, Title XX-200%</td><td><a href="#title_xx_200"><input type="button" value="  Go  "></a></td></tr>
+                    </table>
+                </li>
+                <li>Did the need for services arise for reasons other than the parent/relative's mismanagement of a PA grant?
+                    <table style="width:70%">
+                        <tr><td><input type="checkbox">Yes, child/familiy eligible for TANF-EAF</td></tr>
+                        <tr><td><input type="checkbox">No, child/family ineligible for TANF-EAF - Go to Section V, Title XX-200%</td><td><a href="#title_xx_200"><input type="button" value="  Go  "></a></td></tr>
+                    </table>
+                </li>
+            </ol>
+
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend><b>C: EAF Determination</b></legend>
+            <p>enter program here</p>
+        </fieldset>
+
+
+    </fieldset>
+    <br>
+
+    <fieldset>
+        <legend><a name="title_xx_200"></a><h3>Section V: Title XX-200% Eligibility</h3></legend>
+        <fieldset>
+            <legend><b>A: Citizenship</b></legend>
+            <p>Are all family members who are applying or in receipt of services US Citizens or legally qualified alens as defined under the Federal PRWORA?</p>
+            <table style="width:60%">
+                <tr><td><input type="checkbox">Yes, proceed to next question</td></tr>
+                <tr><td><input type="checkbox">No or unknown, case is not eligible for Title XX-200% - Go to Section IV</td><td><a href="#overall_eligibility"><input type="button" value="  Go  "></a></td></tr>
+            </table>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend><b>B: Minor Child/Pregnant Woman/Non Custodial Parent - Is anyone in the family:</b></legend>
+            <table>
+                <tr><td><input type="checkbox">An eligible minor who is defined as a child under the age of 18, or under the age of 19 and attending secondary school (high school) or equivalent level of technical training.  The child may be living with other family members, living in foster care, living alone or with non family members. </td></tr>
+                <tr><td><p>  OR  </p></td></tr>
+                <tr><td><input type="checkbox">A pregnant female</td></tr>
+                <tr><td><p>  OR  </p></td></tr>
+                <tr><td><input type="checkbox">A non-custodial parent (of a minor child) who has completed Non-Custodial Parent Information Referral Form (LDSS-4728)</td></tr>
+                <tr><td><p>  OR  </p></td></tr>
+                <tr><td>Meets Conditions<input type="checkbox"></td></tr>
+                <tr><td><p>  OR  </p></td></tr>
+                <tr><td><input type="checkbox">No, applicant ineligible for services under Title XX-200% - Go to section IV</td><td><a href="#tanf_eaf_eligibility"><input type="button" value="  Go  "></a></td></tr>
+            </table>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend><b>C: Family Income</b></legend>
+            <p>Is the combined gross income of all family members below the 200% level of poverty (Using current federal poverty level standards).</p>
+            <table style="width:70%">
+                <tr><td><input type="checkbox">Yes, income test is met based on all applicants receiving Family Assistance, Safety Net Assistance, Food Stamps, MA, HEAP or SSI</td></tr>
+                <tr><td><label>Family Size</label></td><td><input type="number"></td><td><input type="button" value="Move to Family Detail Screen" onclick="location.href='family.html';" ></td></tr>
+                <tr><td><label>Yearly Income</label></td><td><input type=text id="YearlyIncome" name="yi"></td></tr>
+                <script>
+                function loadvalue() {
+                   document.getElementById("YearlyIncome").value = localStorage.getItem("test11");
+                }
+                </script>
+                <tr><td><input type="checkbox">Yes, income test is met based on calculation of combined gross income of
+applicant's family members based on applicant's family size</td></tr>
+                <tr><td>Meets condition<input type="checkbox"></td></tr>
+                <tr><td><input type="checkbox">No, applicant ineligible for services under Title XX-200% - Go to section IV </td><td><a href="#tanf_eaf_eligibility"><input type="button" value="  Go  "></a></td></tr>
+            </table>
+
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend><b>D: Title XX-200% Determination</b></legend>
+            <p>Enter program here</p>
+            <table>
+                <tr>
+                    <td>Not Title XX-200%</td>
+                    <td rowspan="2">Child is not Eligible for Title XX-200% or TANF-EAF <br>
+                        Do Not Use an Eligibility Code of 04 and Do Not Use a Suffix of C or D</td>
+                </tr>
+                <tr><td>Not TANF-EAF</td></tr>
+            </table>
+        </fieldset>
+
+
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend><a name="overall_eligibility"></a><h3>Section VI: Overall Eligibility</h3></legend>
+        <input type="button" value="Move to documentation screen" onclick="location.href='document.html';">
+        <table style="width:70%">
+            <tr><td><label>Title IV-E</label></td><td><input type="text" value="Not IV-E"></td><td><input type="button" value="Save"></td></tr>
+            <tr><td><label>TANF-EAF</label></td><td><input type="text" value="Not TANF-EAF"></td><td><input type="button" value="Print1" onclick="printFunction()"></td></tr>
+            <tr><td><label>Title XX-200%</label></td><td><input type="text" value="Not Title XX-200%"></td><td><input type="button" value="Print Summary"></td></tr>
+            <tr><td><label>Worker Name</label></td><td><input type="text"></td><td><input type="button" value="Clear Fields"></td></tr>
+            <tr><Td><label>Worker Signature</label></td><td> _________________________ </Td><Td>Date <input type="date"></Td><td><input type="button" value="Review Summary"></td></tr>
+            <tr><td><label>Supervisor Name</label></td><td><input type="text"></td><td><input type="button" value="Close"></td></tr>
+            <tr><td><label>Supervisor Signature</label></td><td> -----------------------</td><td>Date<input type="date"></td></tr>
+        <script>
+          function printFunction() {
+                    var divToPrint = document.getElementById('table');
+                    var htmlToPrint = '' + '<style type="text/css"> table th, table td { border:1px solid #000; padding;0.2em; }' + '</style>';
+                    htmlToPrint += divToPrint.outerHTML;
+                    newWin = window.open("");
+                    newWin.document.write(htmlToPrint);
+                    newWin.print();
+                    newWin.close();
+                    //window.print();
+                }
+        </script>
+
+        </table>
+
+    </fieldset>
+
+
+        </form></div>
+    </body>
+</html>
