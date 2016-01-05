@@ -1,0 +1,217 @@
+
+<!--
+   document.html
+
+   Copyright 2015 Pavan Narayanan <labadmin@math2>
+   Mathematics Department,
+   Buffalo State College
+
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+        <title>Documentation Screen</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="generator" content="Geany 1.23.1" />
+</head>
+
+<body>
+  <style>
+    #table {
+      width: 70%;
+      border:none;
+    }
+    #input {
+      border:none;
+    }
+  </style>
+        <h3>Documentation for Eligibility</h3>
+                <p>Indicate the documentation used for each item of eligibility. Indicate where that documentation is located in the case record or that it is attached to this form</p>
+
+                <table id="table">
+                        <tr>
+                                <td>No:</td>
+                                <Td>Item</Td>
+                                <td>Type</td>
+                                <Td>Documentation<br> exists?</Td>
+                                <td>Location</td>
+                        </tr>
+                        <tr>
+                                <td>1</td>
+                                <Td>Citizenship<br><i>(Title IV-E/TANF-EAF/Title XX-200%)</i></Td>
+                                <td><input type="text" name="citizenship"></td>
+                                        <Td><select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>2</td>
+                                <Td>Legal Authority<br><i>(Title IV-E)</i></Td>
+                                <td><input type="text" name="legal_authority"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>3</td>
+                                <Td>Reasonable Efforts<br><i>(Title IV-E)</i></Td>
+                                <td><input type="text" name="reasonable_efforts"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>4</td>
+                                <Td>Age<br><i>(Title IV-E/TANF-EAF/Title XX-200%)</i></Td>
+                                <td><input type="text" name="age"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>5</td>
+                                <Td>Specified Relative or Caretaker<br><i>(Title IV-E/TANF-EAF</i></Td>
+                                <td><input type="text" name="relative"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>6</td>
+                                <Td>Parental Deprivation<br><i>(Title IV-E)</i></Td>
+                                <td><input type="text" name="citizenship"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>7</td>
+                                <Td>ADC/Income Test<br><i>(Title IV-E/TANF-EAF/Title XX-200%)</i></Td>
+                                <td><input type="text" name="income"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>8</td>
+                                <Td>Emergency EAF(Foster Care)<br><i>(TANF-EAF)</i></Td>
+                                <td><input type="text" name="eaf"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>9</td>
+                                <Td>Emergency In-home EAF<br><i>(TANF-EAF)</i></Td>
+                                <td><input type="text" name="in_home_eaf"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>10</td>
+                                <Td>Insufficient Resources<br><i>(TANF-EAF)</i></Td>
+                                <td><input type="text" name="insufficient_resources"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>11</td>
+                                <Td>Refused Employment<br><i>(TANF-EAF)</i></Td>
+                                <td><input type="text" name="in_home_eaf"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td>12</td>
+                                <Td>Mismanaged PA<br><i>(TANF-EAF)</i></Td>
+                                <td><input type="text" name="in_home_eaf"></td>
+                                        <Td>
+                                        <select name="yesorno">
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                        </select>
+                                </td>
+                                <td><input type="text" name="location"></td>
+                        </tr>
+                        <tr>
+                                <td colspan="3">
+                                <button onclick="printFunction()">Print</button>
+                                <script>
+                                        function printFunction() {
+                                              var divToPrint = document.getElementById('table');
+                                              var htmlToPrint = '' + '<style type="text/css"> table th, table td { border:1px solid #000; padding;0.2em; }' + '</style>';
+                                              htmlToPrint += divToPrint.outerHTML;
+                                              newWin = window.open("");
+                                              newWin.document.write(htmlToPrint);
+                                              newWin.print();
+                                              newWin.close();
+                                              //window.print();
+                                        }
+                                </script>
+                                <button onclick="clearFunction()">Clear</button>
+                                <script>
+                                        function clearFunction() {
+                                                window.clear();
+                                        }
+                                </script>
+                                <button onclick="returnFunction()">Return</button>
+                                <script>
+                                        function returnFunction() {
+                                                window.history.back();                                        }
+                                </script>
+                                </td>
+                        </tr>
+
+                </table>
+</body>
+
+</html>
